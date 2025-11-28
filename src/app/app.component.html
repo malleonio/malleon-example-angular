@@ -1,0 +1,79 @@
+<div class="container">
+  <header>
+    <h1>🎬 Malleon Replay SDK - Angular Example</h1>
+    <p class="subtitle">Demonstrate how to integrate the Malleon Replay SDK into your Angular application</p>
+  </header>
+
+  <div class="status-message" *ngIf="statusMessage" [class.success]="statusType === 'success'" [class.error]="statusType === 'error'" [class.info]="statusType === 'info'">
+    {{ statusMessage }}
+  </div>
+
+  <section class="card">
+    <h2>📝 User Data Configuration</h2>
+    <p class="description">Update user metadata that will be associated with this replay session.</p>
+    
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" id="username" [(ngModel)]="username" placeholder="Enter username">
+    </div>
+
+    <div class="form-group">
+      <label for="tenantId">Tenant ID:</label>
+      <input type="text" id="tenantId" [(ngModel)]="tenantId" placeholder="Enter tenant ID">
+    </div>
+
+    <div class="form-group">
+      <label for="userEmail">User Email:</label>
+      <input type="email" id="userEmail" [(ngModel)]="userEmail" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label for="userRole">User Role:</label>
+      <input type="text" id="userRole" [(ngModel)]="userRole" placeholder="Enter role">
+    </div>
+
+    <button class="btn btn-primary" (click)="updateUserData()">Update User Data</button>
+  </section>
+
+  <section class="card">
+    <h2>🐛 Console Events</h2>
+    <p class="description">Generate console events that will be captured by the Replay SDK.</p>
+    
+    <div class="button-group">
+      <button class="btn btn-error" (click)="generateError()">Generate Error</button>
+      <button class="btn btn-warning" (click)="generateWarning()">Generate Warning</button>
+      <button class="btn btn-info" (click)="generateLog()">Generate Log</button>
+      <button class="btn btn-error" (click)="generateErrorWithStackTrace()">Generate Error with Stack Trace</button>
+    </div>
+    <p class="description" style="margin-top: 10px; font-size: 0.9em; color: #666;">
+      💡 <strong>Tip:</strong> Use "Generate Error with Stack Trace" to test source map functionality. Make sure you've uploaded source maps first!
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>🌐 API Calls</h2>
+    <p class="description">Make HTTP requests that will be captured by the Replay SDK.</p>
+    
+    <div class="button-group">
+      <button class="btn btn-primary" (click)="makeApiCall()">Make Successful API Call</button>
+      <button class="btn btn-error" (click)="makeFailedApiCall()">Make Failed API Call</button>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>🏷️ Custom Tags</h2>
+    <p class="description">Add custom tags and metadata to the replay session.</p>
+    
+    <div class="button-group">
+      <button class="btn btn-primary" (click)="addCustomTag()">Add Single Tag</button>
+      <button class="btn btn-primary" (click)="addMultipleTags()">Add Multiple Tags</button>
+      <button class="btn btn-primary" (click)="trackState()">Track State Transition</button>
+    </div>
+  </section>
+
+  <footer>
+    <p>💡 <strong>Tip:</strong> After interacting with this page, check your Malleon account dashboard to see the captured replay data!</p>
+    <p>Make sure you've set your <code>replayAppId</code> in <code>src/environments/environment.ts</code></p>
+  </footer>
+</div>
+
