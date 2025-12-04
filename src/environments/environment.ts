@@ -6,9 +6,8 @@ export const environment = {
   production: false,
   // Replace this with your Malleon App ID
   // You can find your App ID in your Malleon account dashboard
-  replayAppId: 'e61adbb2-d13d-428f-a2f3-95ca1b9406f5',
+  replayAppId: 'YOUR_APP_ID_HERE',
   // Set to true to use local compiled replay.es.js file (for development)
   // Set to false to use npm package @malleon/replay (for production)
-  useLocalReplaySDK: true
+  useLocalReplaySDK: false
 };
-
