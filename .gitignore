@@ -43,3 +43,6 @@ testem.log
 .DS_Store
 Thumbs.db
 
+# E2E testing artifacts (copied SDK)
+/src/assets/replay.es.js
+
