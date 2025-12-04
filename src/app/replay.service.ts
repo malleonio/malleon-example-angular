@@ -1,10 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environment';
+import * as ReplaySDK from '@malleon/replay';
 import type { ReplayUserData, ReplayTag, TagType } from '@malleon/replay';
-
-// Dynamic import based on environment configuration
-// Use local file for development iteration, npm package for production
-let ReplaySDK: any = null;
 
 @Injectable({
   providedIn: 'root'
@@ -16,23 +13,12 @@ export class ReplayService {
     this.initializeSDK();
   }
 
-  private async initializeSDK(): Promise<void> {
+  private initializeSDK(): void {
     if (this.initialized) {
       return;
     }
 
     try {
-      // Load SDK from local file or npm package based on environment
-      if (environment.useLocalReplaySDK) {
-        // Import local compiled file for development
-        ReplaySDK = await import('../assets/replay.es.js');
-        console.log('📦 Using local replay.es.js file');
-      } else {
-        // Import from npm package for production
-        ReplaySDK = await import('@malleon/replay');
-        console.log('📦 Using @malleon/replay npm package');
-      }
-
       // Initialize with the app ID from environment
       const appId = environment.replayAppId;
       
