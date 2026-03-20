@@ -305,8 +305,9 @@ await replayService.trackStateTransition('checkout-started');
 
 ## 📚 Learn More
 
-- [Malleon Documentation](https://malleon.io/docs)
-- [Replay SDK Reference](https://malleon.io/docs/sdk)
+- [malleon.io](https://malleon.io) — live app and account
+- [Malleon documentation (GitHub)](https://github.com/malleonio/malleon-documentation)
+- [Replay SDK guide](https://github.com/malleonio/malleon-documentation/blob/main/docs/sdk/replay-sdk.md)
 - [@malleon/replay on npm](https://www.npmjs.com/package/@malleon/replay)
 
 ## 🤝 Support
